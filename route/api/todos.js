@@ -70,4 +70,20 @@ router.post('/update/:id', async (req, res) => {
   }
 });
 
+// @route  DELETE api/todos/delete/:id
+// @desc   Delete todo
+
+router.delete('/delete/:id', async (req, res) => {
+  try {
+    await Todo.findByIdAndRemove(req.params.id, (err, todo) => {
+      if (err) res.status(400).json({ msg: 'Todo not Deleted' });
+      else {
+        res.status(200).json({ msg: `Todo deleted` });
+      }
+    });
+  } catch (err) {
+    console.error(err.message);
+  }
+});
+
 module.exports = router;
