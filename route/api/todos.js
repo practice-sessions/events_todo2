@@ -33,18 +33,17 @@ router.post('/add', async (req, res) => {
 // @route GET api/todos/:id
 // @desc Find todo by id
 
-router.get('/:id', async (req,res) => {
+router.get('/:id', async (req, res) => {
   try {
-    let id = req.params.id 
+    let id = req.params.id;
     await Todo.findById(id, (err, todo) => {
-      res.json(todo)
-      if(err) {
-        return res.send('Wrong data')
-      }
-    })
+      if (err) return res.status(400).json({ msg: 'Wrong data' });
+
+      res.json(todo);
+    });
   } catch (err) {
-    console.error(err.message)
+    console.error(err.message);
   }
-})
+});
 
 module.exports = router;
