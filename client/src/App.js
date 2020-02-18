@@ -18,12 +18,36 @@ class App extends Component {
     return (
       <Router>
         <div className='container'>
-          <h2>Pet Manager's Events Todo App</h2>
+          <nav className='navbar narbar-expand-lg navbar-light bg-light'>
+            <Link to='/create' className='navbar-brand'>
+              <FontAwesomeIcon icon={['fas', 'edit']} />
+            </Link>
+
+            <Link to='/' className='navbar-brand'>
+              Pet Manager's Events Todo App
+            </Link>
+            <div className='collapase navbar-collapase'>
+              <ul className='navbar-nav mr-auto'>
+                <li className='navbar-item'>
+                  <Link to='/' className='nav-link'>
+                    Todos
+                  </Link>
+                </li>
+                <li className='navbar-item'>
+                  <Link to='/create' className='nav-link'>
+                    Create Todo
+                  </Link>
+                </li>
+              </ul>
+            </div>
+          </nav>
+          <br />
+
+          <Route path='/' exact component={Todos_List} />
+          <Route path='/edit/:id' component={Edit_Todo} />
+          <Route path='/create' component={Create_Todo} />
+          <Route path='/delete/:id' component={Delete_Todo} />
         </div>
-        <Route path='/' exact component={Todos_List} />
-        <Route path='/edit/:id' component={Edit_Todo} />
-        <Route path='/create' component={Create_Todo} />
-        <Route path='/delete/:id' component={Delete_Todo} />
       </Router>
     );
   }
