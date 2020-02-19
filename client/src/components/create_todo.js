@@ -44,6 +44,26 @@ class Create_Todo extends Component {
     });
   }
 
+  onSubmit(e) {
+    e.preventDefault();
+
+    console.log(`Form submitted`);
+    console.log(`Todo Description: ${this.state.todo_description}`);
+    console.log(`Todo Responsible: ${this.state.todo_priority}`);
+    console.log(`Todo Priority: ${this.state.todo_priority}`);
+    console.log(`Todo Startdate: ${this.state.todo_startdate}`);
+    console.log(`Todo Completeddate: ${this.state.todo_completeddate}`);
+
+    this.setState({
+      todo_description: '',
+      todo_responsible: '',
+      todo_priority: '',
+      todo_startdate: '',
+      todo_completeddate: '',
+      todo_completed: false
+    });
+  }
+
   render() {
     return (
       <div style={{ marginTop: 10 }}>
