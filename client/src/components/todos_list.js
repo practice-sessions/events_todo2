@@ -10,7 +10,20 @@ class Todos_List extends Component {
   render() {
     return (
       <div>
-        <p>This is my Todos List Component !!</p>
+        <h3>Todo List</h3>
+        <table className='table table-striped' style={{ marginTop: 20 }}>
+          <thead>
+            <tr>
+              <th>Description</th>
+              <th>Responsible</th>
+              <th>Priority</th>
+              <th>Start Date</th>
+              <th>Complete Date</th>
+              <th>Edit Todo</th>
+              <th>Delete Todo</th>
+            </tr>
+          </thead>
+        </table>
       </div>
     );
   }
