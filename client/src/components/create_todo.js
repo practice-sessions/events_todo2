@@ -56,7 +56,7 @@ class Create_Todo extends Component {
 
     console.log(`Form submitted`);
     console.log(`Todo Description: ${this.state.todo_description}`);
-    console.log(`Todo Responsible: ${this.state.todo_priority}`);
+    console.log(`Todo Responsible: ${this.state.todo_responsible}`);
     console.log(`Todo Priority: ${this.state.todo_priority}`);
     console.log(`Todo Startdate: ${this.state.todo_startdate}`);
     console.log(`Todo Completeddate: ${this.state.todo_completeddate}`);
