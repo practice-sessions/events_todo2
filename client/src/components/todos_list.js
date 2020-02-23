@@ -33,13 +33,19 @@ class Todos_List extends Component {
 
   componentDidMount() {
     axios
-      .get('http://localhost:6000/api/todos')
+      .get('http://localhost:5000/api/todos')
       .then(response => {
         this.setState({ todos: response.data });
       })
       .catch(error => {
         console.log(error);
       });
+  }
+
+  todoList() {
+    return this.state.todos.map((currentTodo, i) => {
+      return <Todo todo={currentTodo} key={i} />;
+    });
   }
 
   render() {

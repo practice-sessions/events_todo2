@@ -5,13 +5,6 @@ class Create_Todo extends Component {
   constructor(props) {
     super(props);
 
-    this.onChangeTodoDescription = this.onChangeTodoDescription.bind(this);
-    this.onChangeTodoResponsible = this.onChangeTodoResponsible.bind(this);
-    this.onChangeTodoPriority = this.onChangeTodoPriority.bind(this);
-    this.onChangeTodoStartDate = this.onChangeTodoStartDate.bind(this);
-    this.onChangeTodoCompleteDate = this.onChangeTodoCompleteDate.bind(this);
-    this.onSubmit = this.onSubmit.bind(this);
-
     this.state = {
       todo_description: '',
       todo_responsible: '',
@@ -22,37 +15,37 @@ class Create_Todo extends Component {
     };
   }
 
-  onChangeTodoDescription(e) {
+  onChangeTodoDescription = e => {
     this.setState({
       todo_description: e.target.value
     });
-  }
+  };
 
-  onChangeTodoResponsible(e) {
+  onChangeTodoResponsible = e => {
     this.setState({
       todo_responsible: e.target.value
     });
-  }
+  };
 
-  onChangeTodoPriority(e) {
+  onChangeTodoPriority = e => {
     this.setState({
       todo_priority: e.target.value
     });
-  }
+  };
 
-  onChangeTodoStartDate(e) {
+  onChangeTodoStartDate = e => {
     this.setState({
       todo_startdate: e.target.value
     });
-  }
+  };
 
-  onChangeTodoCompleteDate(e) {
+  onChangeTodoCompleteDate = e => {
     this.setState({
       todo_completeddate: e.target.value
     });
-  }
+  };
 
-  onSubmit(e) {
+  onSubmit = e => {
     e.preventDefault();
 
     console.log(`Form submitted`);
@@ -72,7 +65,7 @@ class Create_Todo extends Component {
     };
 
     axios
-      .post('http://localhost:6000/api/todos/add', newTodo)
+      .post('http://localhost:5000/api/todos/add', newTodo)
       .then(res => console.log(res.data));
 
     this.setState({
@@ -83,7 +76,7 @@ class Create_Todo extends Component {
       todo_completeddate: '',
       todo_completed: false
     });
-  }
+  };
 
   render() {
     return (

@@ -24,7 +24,7 @@ class App extends Component {
             </Link>
 
             <Link to='/' className='navbar-brand'>
-              <strong> Pet Manager's Events Todo App</strong>
+              <strong>Pet Manager's Events Todo App</strong>
             </Link>
             <div className='collapase navbar-collapase'>
               <ul className='navbar-nav mr-auto'>
