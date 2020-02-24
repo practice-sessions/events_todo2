@@ -15,6 +15,23 @@ class Edit_Todo extends Component {
     };
   }
 
+  componentDidMount = () => {
+    axios
+      .get('http://localhost:5000/api/todos/' + this.props.match.params.id)
+      .then(response => {
+        this.setState({
+          todo_description: response.data.todo_description,
+          todo_responsible: response.data.todo_responsible,
+          todo_priority: response.data.todo_priority,
+          todo_completed: response.data.todo_completed,
+          todo_startdate: response.data.todo_startdate,
+          todo_completeddate: response.data.todo_completeddate
+        }).catch(error => {
+          console.log(error);
+        });
+      });
+  };
+
   onChangeTodoDescription = e => {
     this.setState({
       todo_description: e.target.value
