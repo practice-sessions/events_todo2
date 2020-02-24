@@ -62,6 +62,14 @@ class Edit_Todo extends Component {
       todo_completeddate: this.state.todo_completeddate
     };
     console.log(obj);
+    axios
+      .post(
+        'http://localhost:5000/api/todos/update/' + this.props.match.params.id,
+        obj
+      )
+      .then(res => console.log(res.data));
+
+    this.props.history.push('/');
   };
 
   render() {
