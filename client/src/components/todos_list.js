@@ -64,6 +64,7 @@ class Todos_List extends Component {
               <th>Delete Todo</th>
             </tr>
           </thead>
+          <tbody>{this.todoList()}</tbody>
         </table>
       </div>
     );

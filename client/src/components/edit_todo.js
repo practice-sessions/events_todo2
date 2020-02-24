@@ -15,7 +15,7 @@ class Edit_Todo extends Component {
     };
   }
 
-  componentDidMount = () => {
+  componentDidMount() {
     axios
       .get('http://localhost:5000/api/todos/' + this.props.match.params.id)
       .then(response => {
@@ -30,7 +30,7 @@ class Edit_Todo extends Component {
           console.log(error);
         });
       });
-  };
+  }
 
   onChangeTodoDescription = e => {
     this.setState({
