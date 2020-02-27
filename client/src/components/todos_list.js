@@ -13,12 +13,17 @@ const Todo = props => (
     <td className={props.todo.todo_completed ? 'completed' : ''}>
       {props.todo.todo_priority}
     </td>
+
+    <td className={props.todo.todo_completed ? 'completed' : ''}>
+      {props.todo.todo_startdate}
+    </td>
     <td className={props.todo.todo_completed ? 'completed' : ''}>
       {props.todo.todo_completeddate}
     </td>
     <td>
       <Link to={'/edit/' + props.todo._id}>Edit</Link>
     </td>
+
     <td>
       <Link to={'/delete/' + props.todo._id}>Delete</Link>
     </td>

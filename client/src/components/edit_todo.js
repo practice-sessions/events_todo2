@@ -26,9 +26,10 @@ class Edit_Todo extends Component {
           todo_completed: response.data.todo_completed,
           todo_startdate: response.data.todo_startdate,
           todo_completeddate: response.data.todo_completeddate
-        }).catch(error => {
-          console.log(error);
         });
+      })
+      .catch(function(error) {
+        console.log(error);
       });
   }
 
@@ -106,7 +107,7 @@ class Edit_Todo extends Component {
 
           <div className='form-group'>
             <label>Responsible:</label>
-            <iput
+            <input
               type='text'
               className='form-control'
               value={this.state.todo_responsible}

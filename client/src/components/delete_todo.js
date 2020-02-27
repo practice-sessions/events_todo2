@@ -62,6 +62,14 @@ class Delete_Todo extends Component {
       todo_completed: this.state.todo_completed
     };
     console.log(obj);
+    axios
+      .delete(
+        'http://localhost:5000/api/todos/delete/' + this.props.match.params.id,
+        obj
+      )
+      .then(res => console.log(res.data));
+
+    this.props.history.push('/');
   };
 
   render() {
