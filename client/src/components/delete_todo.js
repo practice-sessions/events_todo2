@@ -12,17 +12,54 @@ class Delete_Todo extends Component {
       todo_completed: false
     };
   }
+
+  onChangeTodoDescription = e => {
+    this.setState({
+      todo_description: e.target.value
+    });
+  };
+
+  onChangeTodoResponsible = e => {
+    this.setState({
+      todo_description: e.target.value
+    });
+  };
+
+  onChangeTodoPriority = e => {
+    this.setState({
+      todo_priority: e.target.value
+    });
+  };
+
+  onChangeTodoCompleted = e => {
+    this.setState({
+      todo_completed: !this.state.todo_completed
+    });
+  };
+
+  onSubmit = e => {
+    e.preventDefault();
+    const obj = {
+      todo_description: this.state.todo_description,
+      todo_responsible: this.state.todo_responsible,
+      todo_priority: this.state.todo_priority,
+      todo_completed: this.state.todo_completed
+    };
+    console.log(obj);
+  };
+
   render() {
     return (
       <div>
         <h3 align='center'>Delete Todo</h3>
-        <form>
+        <form onSubmit={this.onSubmit}>
           <div className='form-group'>
             <label>Description: </label>
             <input
               type='text'
               className='form-control'
               value={this.state.todo_description}
+              onChange={this.onChangeTodoDescription}
             />
           </div>
 
@@ -32,11 +69,12 @@ class Delete_Todo extends Component {
               type='text'
               className='form-control'
               value={this.state.todo_responsible}
+              onChange={this.onChangeTodoResponsible}
             />
           </div>
 
           <div className='form-group'>
-            <div className='form-check-input'>
+            <div className='form-check form-check-inline'>
               <input
                 className='form-check-input'
                 type='radio'
@@ -44,6 +82,7 @@ class Delete_Todo extends Component {
                 id='priorityLow'
                 value='Low'
                 checked={this.state.todo_priority === 'Low'}
+                onChange={this.onChangeTodoPriority}
               />
               <label className='form-check-label'>Low</label>
             </div>
@@ -56,6 +95,7 @@ class Delete_Todo extends Component {
                 id='priorityMedium'
                 value='Medium'
                 checked={this.state.todo_priority === 'Medium'}
+                onChange={this.onChangeTodoPriority}
               />
               <label className='form-check-label'>Medium</label>
             </div>
@@ -68,6 +108,7 @@ class Delete_Todo extends Component {
                 id='priorityHigh'
                 value='High'
                 checked={this.state.todo_priority === 'High'}
+                onChange={this.onChangeTodoPriority}
               />
               <label className='form-check-label'>High</label>
             </div>
