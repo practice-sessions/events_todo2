@@ -13,6 +13,22 @@ class Delete_Todo extends Component {
     };
   }
 
+  componentDidMount() {
+    axios
+      .get('http://localhost:5000/api/todos/' + this.props.match.params.id)
+      .then(response => {
+        this.setState({
+          todo_description: response.data.todo_description,
+          todo_responsible: response.data.todo_responsible,
+          todo_priority: response.data.todo_priority,
+          todo_completed: response.data.todo_completed
+        });
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  }
+
   onChangeTodoDescription = e => {
     this.setState({
       todo_description: e.target.value
