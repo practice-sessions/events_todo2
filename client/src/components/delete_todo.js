@@ -9,57 +9,51 @@ class Delete_Todo extends Component {
       todo_description: '',
       todo_responsible: '',
       todo_priority: '',
-      todo_completed: false
+      todo_completed: false,
     };
   }
 
   componentDidMount() {
     axios
       .get('http://localhost:5000/api/todos/' + this.props.match.params.id)
-      .then(response => {
+      .then((response) => {
         this.setState({
           todo_description: response.data.todo_description,
           todo_responsible: response.data.todo_responsible,
           todo_priority: response.data.todo_priority,
-          todo_completed: response.data.todo_completed
+          todo_completed: response.data.todo_completed,
         });
       })
-      .catch(error => {
+      .catch((error) => {
         console.log(error);
       });
   }
 
-  onChangeTodoDescription = e => {
+  onChangeTodoDescription = (e) => {
     this.setState({
-      todo_description: e.target.value
+      todo_description: e.target.value,
     });
   };
 
-  onChangeTodoResponsible = e => {
+  onChangeTodoResponsible = (e) => {
     this.setState({
-      todo_description: e.target.value
+      todo_responsible: e.target.value,
     });
   };
 
-  onChangeTodoPriority = e => {
+  onChangeTodoPriority = (e) => {
     this.setState({
-      todo_priority: e.target.value
+      todo_priority: e.target.value,
     });
   };
 
-  onChangeTodoCompleted = e => {
-    this.setState({
-      todo_completed: !this.state.todo_completed
-    });
-  };
-
-  onSubmit = e => {
+  onSubmit = (e) => {
     e.preventDefault();
     const obj = {
       todo_description: this.state.todo_description,
       todo_responsible: this.state.todo_responsible,
       todo_priority: this.state.todo_priority,
-      todo_completed: this.state.todo_completed
+      todo_completed: this.state.todo_completed,
     };
     console.log(obj);
     axios
@@ -67,7 +61,7 @@ class Delete_Todo extends Component {
         'http://localhost:5000/api/todos/delete/' + this.props.match.params.id,
         obj
       )
-      .then(res => console.log(res.data));
+      .then((res) => console.log(res.data));
 
     this.props.history.push('/');
   };

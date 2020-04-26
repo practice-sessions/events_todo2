@@ -21,7 +21,7 @@ router.get('/', (req, res) => {
 router.post('/add', async (req, res) => {
   try {
     let todo = new Todo(req.body);
-    await todo.save().then(todo => {
+    await todo.save().then((todo) => {
       res.status(200).json({ todo: 'todo added successfully' });
     });
   } catch (err) {
@@ -60,7 +60,7 @@ router.post('/update/:id', async (req, res) => {
       todo.todo_startdate = req.body.todo_startdate;
       todo.todo_completeddate = req.body.todo_completeddate;
 
-      todo.save().then(todo => {
+      todo.save().then((todo) => {
         res.json('Todo updated!');
       });
     });
