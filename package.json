@@ -12,10 +12,10 @@
   "scripts": {
     "start": "node server.js",
     "server": "nodemon server.js",
-    "client": "npm start --prefix client",
-    "clientinstall": "npm install --prefix client",
-    "dev": "concurrently \"npm run server\" \"npm run client\"",
-    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
+    "client": "yarn start --prefix client",
+    "clientinstall": "yarn install --prefix client",
+    "dev": "concurrently \"yarn run server\" \"yarn run client\"",
+    "heroku-postbuild": "YARN_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
   },
   "dependencies": {
     "config": "^3.2.5",
